@@ -679,4 +679,16 @@
       bankPicPath = #{bankpicpath,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="findByMobileOrEmail" parameterType="com.drawnblue.entity.User" resultMap="BaseResultMap">
+  SELECT id,mobile,email
+  FROM au_user
+  WHERE `password`=#{password}
+  <if test="mobile != null">
+   AND mobile=#{mobile}
+  </if>
+    <if test="email != null">
+    AND email=#{email}
+    </if>
+  limit 1
+  </select>
 </mapper>

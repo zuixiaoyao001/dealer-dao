@@ -94,4 +94,6 @@ public interface UserMapper {
      * @mbg.generated Sun Aug 04 18:07:12 CST 2019
      */
     int updateByPrimaryKey(User record);
+
+    User findByMobileOrEmail(User user);
 }
